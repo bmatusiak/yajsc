@@ -13,7 +13,7 @@ package yajsc {
 	    {
 	        this.InitializeComponent();
 	        this.add_WndProcHandler(this.MsgRecieverHandler);
-	        Console.WriteLine("MyForm Loaded");
+	        Console.WriteLine("MyForm Loaded!");
 	        this.ShowDialog();
 	    }
 	    function MsgRecieverHandler(sender , e : EventArgs)
