@@ -1,4 +1,5 @@
-﻿import System;
+﻿/// <reference path="package-test.js" />
+import System;
 import yajsc;
 
 public class Main
