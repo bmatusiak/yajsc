@@ -1,0 +1,8 @@
+G:\yajsc svn\trunk\yajscompiler\yajsc\obj\Debug\ResolveAssemblyReference.cache
+G:\yajsc svn\trunk\yajscompiler\yajsc\bin\Debug\yajsc.exe
+G:\yajsc svn\trunk\yajscompiler\yajsc\bin\Debug\yajsc.pdb
+G:\yajsc svn\trunk\yajscompiler\yajsc\obj\Debug\yajsc.exe
+G:\yajsc svn\trunk\yajscompiler\yajsc\obj\Debug\yajsc.pdb
+G:\yajsc svn\trunk\yajscompiler\yajsc\bin\Debug\yajsc\gui-webtest.js
+G:\yajsc svn\trunk\yajscompiler\yajsc\bin\Debug\yajsc\main-test.js
+G:\yajsc svn\trunk\yajscompiler\yajsc\bin\Debug\yajsc\package-test.js
