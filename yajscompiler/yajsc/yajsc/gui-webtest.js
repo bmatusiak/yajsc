@@ -1,4 +1,5 @@
-﻿import System;/// <reference assembly="System" />
+﻿/// <reference assembly="main-test.js" />
+import System;
 import System.Collections.Generic;
 import System.ComponentModel;
 import System.Data;
@@ -6,6 +7,7 @@ import System.Drawing;
 import System.Text;
 import System.Windows.Forms;
 import System.Threading;
+import System.IO;
 package yajsc {
     public class MyForm extends yajsc.Form
     {	
@@ -21,6 +23,11 @@ package yajsc {
 	        global.AllocConsole();
 	        
 	    }
+	    function  ReadFile(filePath : String) : String
+        {
+            var trs : TextReader = new StreamReader(filePath);
+            return trs.ReadToEnd();
+        }
 	    function MyWndProc(sender , e : EventArgs)
         {
            // sender.To
@@ -93,6 +100,7 @@ package yajsc {
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(664, 420);
             this.webBrowser1.TabIndex = 0;
+            this.webBrowser1.DocumentText = ReadFile(Directory.GetCurrentDirectory() + "\\yajsc\\temp.htm");
             //this.webBrowser1.add_DocumentCompleted(this.webBrowser1_DocumentCompleted);
             // 
             // toolStripButton1
