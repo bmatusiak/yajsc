@@ -12,6 +12,7 @@ namespace yajscompiler
 {
     public class YAJSCompiler : StaticYAJSCompiler
     {
+        public Dictionary<Type, List<MemberInfo>> _CompiledTypes = new Dictionary<Type, List<MemberInfo>>();
         public YAJSCompiler()
         {
             //Setting Our Default Compiler Options
@@ -26,11 +27,32 @@ namespace yajscompiler
             this.Options.TempFiles.KeepFiles = false;
         }
         public CompilerResults Results = null;
-        public Type[] CompiledTypes
+        public Dictionary<Type, List<MemberInfo>> CompiledTypes
         {
             get
             {
-                return this.Results.CompiledAssembly.GetTypes();
+                foreach(Type type in this.Results.CompiledAssembly.GetTypes())
+                {
+                    if (!type.FullName.Contains("JScript"))
+                    {
+                        List<MemberInfo> members = new List<MemberInfo>();
+                        foreach (MemberInfo member in type.GetMembers(BindingFlags.Public | BindingFlags.Default))
+                        {
+                            if (member.DeclaringType.FullName == type.FullName)
+                                members.Add(member);
+                        }
+                        try
+                        {
+                            _CompiledTypes.Add(type, members);
+                        }
+                        catch (Exception e)
+                        {
+                            _CompiledTypes.Remove(type);
+                            _CompiledTypes.Add(type, members);
+                        }
+                    }
+                }
+                return _CompiledTypes;
             }
         }
         public CompilerParameters Options = CodeDomProvider.GetCompilerInfo("JScript").CreateDefaultCompilerParameters();
