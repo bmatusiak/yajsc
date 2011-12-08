@@ -14,9 +14,10 @@ namespace yajscompiler
         {
             Console.WriteLine("----Compile----");
             YAJSCompiler jscript = new YAJSCompiler();
-            jscript.Options.GenerateInMemory = true;
-            jscript.Options.GenerateExecutable = false;
+            jscript.Options.GenerateInMemory = false;
+            //jscript.Options.GenerateExecutable = true;
             jscript.Options.TempFiles.KeepFiles = false;
+            //jscript.Out = Directory.GetCurrentDirectory() + @"\YourProgram.exe";
             jscript.Options.ReferencedAssemblies.Add(Assembly.GetExecutingAssembly().Location);
             jscript.CompileSource = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\yajsc", "*.js");
             Console.WriteLine("----Run----");

@@ -1,7 +1,7 @@
 ﻿/// <reference path="package-test.js" />
 import System;
 import yajsc;
-
+//var main : Main = new Main;
 public class Main
 {
     public function Main()
@@ -13,12 +13,12 @@ public class Main
     public function main(args : String[]) : void
     {
         Console.WriteLine("main(args : String[])");
-        
+
     }
 }
 
 public class TestClass extends LocalScope
-{   
+{
     function TestClass(){
         print('Construct TestClass');
         try{
