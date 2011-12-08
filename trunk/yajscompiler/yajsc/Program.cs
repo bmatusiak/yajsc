@@ -19,6 +19,7 @@ namespace yajscompiler
             jscript.Options.TempFiles.KeepFiles = false;
             //jscript.Out = Directory.GetCurrentDirectory() + @"\YourProgram.exe";
             jscript.Options.ReferencedAssemblies.Add(Assembly.GetExecutingAssembly().Location);
+            jscript.Options.EmbeddedResources.Add(Assembly.GetExecutingAssembly().Location);
             jscript.CompileSource = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\yajsc", "*.js");
             Console.WriteLine("----Run----");
             jscript.CreateInstance();
