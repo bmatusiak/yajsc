@@ -24,7 +24,7 @@ namespace yajscompiler
             Console.WriteLine("----Run----");
             jscript.CreateInstance();
             jscript.InvokeMember("main", args);
-            Console.Read();
+            //Console.Read();
         }
     }
 }
