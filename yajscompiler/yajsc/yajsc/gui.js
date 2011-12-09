@@ -18,9 +18,9 @@ package yajsc {
 	        this.webBrowser1.add_Navigating(this.webBrowser1_Navigating);
 	        Console.WriteLine("MyForm Loaded!");
 	        var global = new yajsc.GlobalScope();
-	        global.FreeConsole();
+	        //global.FreeConsole();
 	        this.ShowDialog();
-	        global.AllocConsole();
+	        //global.AllocConsole();
 	        
 	    }
 	    function  ReadFile(filePath : String) : String
@@ -134,7 +134,7 @@ package yajsc {
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Form1";
-            this.TopMost = true;
+            this.TopMost = true;//allwats on top
             //this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
