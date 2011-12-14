@@ -88,7 +88,7 @@
     <Content Include="yajsc\jsmvc\view\index.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="yajsc\Main.js">
+    <Content Include="yajsc\main.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="yajsc\temp.htm">
