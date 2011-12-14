@@ -15,15 +15,23 @@ package yajsc {
         public var view;
         public var layout = "default";
         public var tools;
-        public var LocalScope = new yajsc.LocalScope();
-        public var document;
+        public var events;
+        public var Scope = new yajsc.LocalScope();
+        public var GUI;
         
         
-        public function MVCJSParser(args : String,obj : Object) 
+        public function MVCJSParser(args : String,obj : MyForm) 
         {   
-            document = obj;        
-            tools = LocalScope.NewDict();
+            GUI = obj;        
+            tools = Scope.NewDict();
+            events = Scope.NewDict();
+            events["DocumentClick"] = Scope.NewDict();
             RunMVC(args);
+        }
+        
+        public function NewDict() : Object 
+        {   
+            return Scope.NewDict();
         }
         
         public function RunMVC(args : String) 

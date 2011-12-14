@@ -23,14 +23,17 @@ package yajsc {
 	        //global.FreeConsole(); 
 	        //this.ShowDialog();
 	        //global.AllocConsole();
-	        Parser = new MVCJSParser("index",this.webBrowser1.Document)
+	        Parser = new MVCJSParser("index",this)
 	        this.webBrowser1.DocumentText = Parser.Output();
+	        this.webBrowser1.Document.add_Click(this.DocClick);
 	    }
 	    var Parser : MVCJSParser;
-	    function  ReadFile(filePath : String) : String
+	    
+	    private function DocClick(sender,e : HtmlElementEventArgs) : void
         {
-            var trs : TextReader = new StreamReader(filePath);
-            return trs.ReadToEnd();
+            try{
+                Parser.events["DocClick"].Start(sender,e);
+            }catch(ed){Console.WriteLine(ed);};
         }
         
         private var global = new yajsc.GlobalScope();
@@ -62,7 +65,7 @@ package yajsc {
             
             if(Url != ''){
                 Console.WriteLine("'"+Url+"'");
-                Parser = new MVCJSParser(Url,this.webBrowser1.Document);
+                Parser = new MVCJSParser(Url,this);
                 this.webBrowser1.Document.Body.InnerHtml = Parser.Output();
             }
         }
