@@ -1,6 +1,4 @@
-﻿/// <reference path="gui.js" />
-/// <reference path="html-tools.js" />
-import System;
+﻿import System;
 import System.IO;
 import System.Collections.Generic;
 import System.Windows.Forms;
