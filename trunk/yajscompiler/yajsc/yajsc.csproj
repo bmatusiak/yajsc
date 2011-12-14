@@ -70,7 +70,9 @@
     <Content Include="yajsc\BrowserForm.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="yajsc\main.js" />
+    <Content Include="yajsc\main.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="yajsc\MVCJSParser.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
