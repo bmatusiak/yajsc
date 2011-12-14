@@ -1,17 +1,23 @@
-﻿/// <reference path="package-test.js" />
+﻿/// <reference path="gui.js" />
+/// <reference path="html-tools.js" />
 import System;
-import yajsc;
-//var main : Main = new Main;
-class Main
-{
-    public function Main()
+import System.IO;
+import System.Collections.Generic;
+import System.Windows.Forms;
+import System.Threading;
+
+print("outsidetest");
+//var main : yajsc.Main = new Main(Environment.GetCommandLineArgs());
+package yajsc {
+    class Main
     {
-        Console.WriteLine("Construct Main.js");
-        
-    }
-    public function main(args : String[]) : void
-    {
-        Console.WriteLine("main(args : String[])");
-        new yajsc.MyForm;
+        public function Main(){
+            var args : String[] = Environment.GetCommandLineArgs();
+        }
+        public function main(args : String[])
+        {
+            var form = new MyForm();
+            form.ShowDialog();
+        }
     }
 }
