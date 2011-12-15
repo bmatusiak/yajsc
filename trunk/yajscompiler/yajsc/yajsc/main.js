@@ -4,8 +4,7 @@ import System.Collections.Generic;
 import System.Windows.Forms;
 import System.Threading;
 
-print("outsidetest");
-//var main : yajsc.Main = new Main(Environment.GetCommandLineArgs());
+var main : yajsc.Main = new yajsc.Main();//Used for Running Compiled EXE
 package yajsc {
     class Main
     {
