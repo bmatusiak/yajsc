@@ -1,6 +1,4 @@
-﻿
-
-function DocClick(){}
+﻿function DocClick(){}
 
 function DocClick.prototype.Start(sender,eArg){
     switch(sender.ActiveElement.Id){
@@ -21,4 +19,4 @@ function DocClick.prototype.Start(sender,eArg){
     }
     
 }
-events["DocClick"] = new DocClick();
+events["DocClick"]["index"] = new DocClick();

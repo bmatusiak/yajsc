@@ -1,11 +1,4 @@
-﻿//Output("<HTML>");
-//Output("<BODY>");
-//Output(view);
-//Output("</BODY>");
-//Output("</HTML>");
-
-
-Output('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">');
+﻿Output('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">');
 Output('<html>');
 Output('<head>');
 Output('<title></title>');

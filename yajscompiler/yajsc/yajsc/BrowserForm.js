@@ -12,51 +12,36 @@ import System.IO;
 package yajsc {
     public class MyForm extends yajsc.Form
     {	
+        var Parser : MVCJSParser;
+	    private var global = new yajsc.GlobalScope();
+        
         public function MyForm()
 	    {
 	        this.InitializeComponent();
 	        this.add_WndProcHandler(this.MyWndProc);
 	        this.webBrowser1.add_Navigating(this.webBrowser1_Navigating);
-	        //var global = new yajsc.GlobalScope();
 	        this.debugOn.add_Click(this.debugOn_Click);
 	        this.debugOff.add_Click(this.debugOff_Click);
-	        //global.FreeConsole(); 
-	        //this.ShowDialog();
-	        //global.AllocConsole();
 	        Parser = new MVCJSParser("index",this)
 	        this.webBrowser1.DocumentText = Parser.Output();
 	        this.webBrowser1.Document.add_Click(this.DocClick);
 	    }
-	    var Parser : MVCJSParser;
 	    
 	    private function DocClick(sender,e : HtmlElementEventArgs) : void
         {
             try{
-                Parser.events["DocClick"].Start(sender,e);
+                for(var events in Parser.events["DocClick"])
+                    events.Start(sender,e);
             }catch(ed){Console.WriteLine(ed);};
         }
-        
-        private var global = new yajsc.GlobalScope();
-        
-        private function debugOn_Click(sender,e : EventArgs) : void
-        {
-            this.global.AllocConsole()
-        }
-        private function debugOff_Click(sender,e : EventArgs) : void
-        {
-            this.global.FreeConsole();
-        }
+        private function debugOn_Click(sender,e : EventArgs) : void {this.global.AllocConsole();}
+        private function debugOff_Click(sender,e : EventArgs) : void {this.global.FreeConsole();}
 	    public function MyWndProc(sender , e : EventArgs)
         {
            // sender.To
            // sender.From
            // sender.Id
            // sender.Data
-           //if(sender.Visible)
-                //this.htmlSet(" " + sender.To + " " + sender.From + " " + sender.Id + " " + sender.Data + " " + "<br>");
-            
-            //Console.WriteLine("----CopyDataRecived----\nRecived MSG from " + sender.From + "\nID: "+ sender.Id + "\nData: "+sender.Data);
-            //sender.Send(null,sender.From,4919,"print('SendBack Data');");
         }
         private function webBrowser1_Navigating(sender, e : WebBrowserNavigatingEventArgs)
         {
@@ -120,28 +105,20 @@ package yajsc {
             this.webBrowser1.Size = new System.Drawing.Size(664, 420);
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.DocumentText = "<html><body></body></html>";
-            //this.webBrowser1.DocumentText = ReadFile(Directory.GetCurrentDirectory() + "\\yajsc\\temp.htm");
-            //this.webBrowser1.add_DocumentCompleted(this.webBrowser1_DocumentCompleted);
             // 
             // debugOn
             // 
             this.debugOn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            //this.debugOn.Image = ((System.Drawing.Image)(resources.GetObject("debugOn.Image")));
-            //this.debugOn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.debugOn.Name = "debugOn";
             this.debugOn.Size = new System.Drawing.Size(89, 22);
             this.debugOn.Text = "Debug On";
-            //this.debugOn.Click += new System.EventHandler(this.debugOn_Click);
             // 
             // debugOff
             // 
             this.debugOff.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            //this.debugOff.Image = ((System.Drawing.Image)(resources.GetObject("debugOff.Image")));
-            //this.debugOff.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.debugOff.Name = "debugOff";
             this.debugOff.Size = new System.Drawing.Size(89, 22);
             this.debugOff.Text = "Debug Off";
-            //this.debugOff.Click += new System.EventHandler(this.debugOff_Click);
             // 
             // Form1
             // 
@@ -155,7 +132,7 @@ package yajsc {
             this.ShowIcon = false;
             this.Text = "Form1";
             this.TopMost = true;//allwats on top
-            //this.Load += new System.EventHandler(this.Form1_Load);
+            //this.add_Load(this.Form1_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();

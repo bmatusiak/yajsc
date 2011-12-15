@@ -25,7 +25,7 @@ package yajsc {
             GUI = obj;        
             tools = Scope.NewDict();
             events = Scope.NewDict();
-            events["DocumentClick"] = Scope.NewDict();
+            events["DocClick"] = Scope.NewDict();
             RunMVC(args);
         }
         
